@@ -41,6 +41,7 @@ public class SofTest {
     }
 
     public static void SofTestGUI(){
+
         System.exit(2);
     }
 }
