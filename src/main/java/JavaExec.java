@@ -12,7 +12,7 @@ public class JavaExec {
         // This will not accept maven projects!
         System.out.println("Please input the file directory of your Java program for execution: ");
         String filePath = input.next();
-        if(validate.FileValidator(filePath)){
+        if(validate.JavaValidator(filePath)){
             new JavaExec(filePath);
         }
     }
