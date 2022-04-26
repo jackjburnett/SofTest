@@ -9,6 +9,7 @@ public class JavaExec {
     Scanner input = new Scanner(System.in);
 
     public JavaExec(){
+        // This will not accept maven projects!
         System.out.println("Please input the file directory of your Java program for execution: ");
         String filePath = input.next();
         if(validate.FileValidator(filePath)){
@@ -17,6 +18,7 @@ public class JavaExec {
     }
 
     public JavaExec(String filePath){
+        //Compile the program
         try {
             Process processCompile = Runtime.getRuntime().exec("javac "+filePath);
         } catch (IOException e) {
