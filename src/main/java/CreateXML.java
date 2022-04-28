@@ -15,7 +15,7 @@ public class CreateXML {
     public CreateXML(){
         System.out.println("Please input the file directory of your Java file for XML creation: ");
         String filePath = input.next();
-        if (validate.XMLValidator(filePath)){
+        if (validate.JavaValidator(filePath)){
             new CreateXML(filePath);
         }
     }
