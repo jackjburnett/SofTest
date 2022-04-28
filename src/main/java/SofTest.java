@@ -20,14 +20,17 @@ public class SofTest {
     public static void SofTestCMD(){
         Scanner input = new Scanner(System.in);
         while(true){
-            System.out.println("Would you like to Run a Java project, Parse an XML file, Create XML from a Java Project, Analyse a Java project, or exit: ");
+            System.out.println("Would you like to Run a Java project, Parse an XML or Java file, Create XML from a Java Project, Analyse a Java project, or exit: ");
             String sofMode = input.next().toLowerCase();
             switch(sofMode) {
                 case "run":
                     new JavaExec();
                     break;
-                case "parse":
+                case "parse java":
                     new JavaParser();
+                    break;
+                case "parse xml":
+                    new XMLParser();
                     break;
                 case "create":
                     new CreateXML();

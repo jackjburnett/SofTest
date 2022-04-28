@@ -13,7 +13,7 @@ public class JavaParser {
     Scanner input = new Scanner(System.in);
 
     public JavaParser() {
-        System.out.println("Please input the file directory of your XML for parsing: ");
+        System.out.println("Please input the file directory of your Java file for parsing: ");
         String filePath = input.next();
         if (validate.JavaValidator(filePath)) {
             new JavaParser(filePath);
