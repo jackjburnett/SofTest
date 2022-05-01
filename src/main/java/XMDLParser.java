@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class XMDLParser {
@@ -7,10 +11,31 @@ public class XMDLParser {
     public XMDLParser(){
         System.out.println("Please input the file directory of your XMDL file for test generation: ");
         String filePath = input.next();
-        System.out.println(validate.XMDLValidator(filePath));
+        if(validate.XMDLValidator(filePath)){
+            ParseFile(filePath, true);
+        }else{
+            System.out.println("Returning to main menu.");
+        }
     }
 
-    public XMDLParser(String filePath){
-        System.out.println(validate.XMDLValidator(filePath));
+    public StreamX ParseFile(String filePath, Boolean ParseMode){
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            for(String line; (line = br.readLine()) != null; ) {
+                String[] XDMLLine = line.split(" ");
+                switch (XDMLLine[0]){
+                    case "#datatype":
+                        System.out.println("datatype");
+                        break;
+                    case "state":
+                        System.out.println("state");
+                        break;
+
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
