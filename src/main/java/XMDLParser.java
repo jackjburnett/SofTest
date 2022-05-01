@@ -162,7 +162,20 @@ public class XMDLParser {
                         }
                         break;
                     case "#transition":
-                        System.out.println("transition");
+                        if((XMDLLine.length <= 3)){
+                            if(ParseMode) {
+                                System.out.println("Incomplete Transition entry on line " + lineNo + ".");
+                            }
+                        }else {
+                            String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
+                            String tranString=String.join("", tempArray);
+                            XMDLLine = tranString.split("=");
+                            //Code to create X-Machine here
+
+                            if (ParseMode) {
+                                System.out.println("Transition from '" + XMDLLine[0] + "' to '"+ XMDLLine[1]+"', parsed on line " + lineNo + ".");
+                            }
+                        }
                         break;
                     case "":
                     case "\n":
