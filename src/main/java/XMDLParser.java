@@ -157,7 +157,7 @@ public class XMDLParser {
                             //Code to create X-Machine here
 
                             if (ParseMode) {
-                                System.out.println("External Function '" + XMDLLine[1] + "', with value "+ Arrays.toString(tempArray)+", parsed on line " + lineNo + ".");
+                                System.out.println("External Function '" + XMDLLine[1] + "', with value '"+ String.join("", tempArray)+"', parsed on line " + lineNo + ".");
                             }
                         }
                         break;
