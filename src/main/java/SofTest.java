@@ -21,16 +21,17 @@ public class SofTest {
         Scanner input = new Scanner(System.in);
         while(true){
             // http://jsxm.org/
-            System.out.println("Would you like to View an XMDL file, Generate test cases, Open previous test cases, or Exit: ");
+            System.out.println("Would you like to Parse an XMDL file, Generate test cases for an XMDL file, View previous test cases, or Exit: ");
             String sofMode = input.next().toLowerCase();
             switch(sofMode) {
-                case "view":
+                case "parse":
                     new XMDLParser();
                     break;
                 case "generate":
+                case "test":
                     new StreamX();
                     break;
-                case "open":
+                case "view":
                     new TestViewer();
                     break;
                 case "exit":
