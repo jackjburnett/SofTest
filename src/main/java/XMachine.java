@@ -3,6 +3,7 @@ public class XMachine {
     private String[] States;
     private String[] Inputs;
     private String[] Output;
+    private String[] Memory;
     private String InitState;
     private String[] InitMemory;
     private String[] Functions;
@@ -13,11 +14,12 @@ public class XMachine {
         System.out.println("Test XMachine");
     }
 
-    public XMachine(String[][] dataTypes, String[] states, String[] inputs, String[] output, String initState, String[] initMemory, String[] functions, String[] extFunctions, String[] transitions) {
+    public XMachine(String[][] dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[] functions, String[] extFunctions, String[] transitions) {
         DataTypes = dataTypes;
         States = states;
         Inputs = inputs;
         Output = output;
+        Memory = memory;
         InitState = initState;
         InitMemory = initMemory;
         Functions = functions;
@@ -55,6 +57,14 @@ public class XMachine {
 
     public void setOutput(String[] output) {
         Output = output;
+    }
+
+    public String[] getMemory() {
+        return Memory;
+    }
+
+    public void setMemory(String[] memory) {
+        Memory = memory;
     }
 
     public String getInitState() {
