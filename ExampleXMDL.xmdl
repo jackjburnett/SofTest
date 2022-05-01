@@ -1,0 +1,26 @@
+#datatype coin = {drc50, drc100}
+#datatype selection = {coke_b, lemonade_b, sprite_b}
+#datatype process = {enter}
+#datatype drink_ready = {yes, no}
+#datatype amount = {0, 50, 100, 150, 200, 250, 300}
+#datatype boolean {true, false}
+
+#state {await_coin, await_selection, ready}
+
+#input (coin) union (selection) union (process)
+
+#output (state, amount, drink_ready)
+
+#memory (amount, selection)
+
+#init_state await_coin
+
+#init_memory (0, coke_b)
+
+#fun get_coin((?x), (?current_amount, ?current_selection)): if ?x belongs coin and ¬sufficient(?x, ?current_amount) is true then ((await_coin, add(?x, ?current_amount), no_drink), (add(?x, ?current_amount), ?current_selection))
+
+#x_fun boolean = sufficient(coin, amount)
+#x_fun amount = add(coin, amount)
+
+#transition (await_coin, get_coin) = await_coin
+Example taken from A design language and tool for X-machines specification
