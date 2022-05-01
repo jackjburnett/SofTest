@@ -12,7 +12,7 @@ public class SofTest {
             System.out.println("Opening SofTest in GUI mode");
             SofTestGUI();
         }else{
-            System.out.println("Unknown argument, closing SofTest in Command Line mode");
+            System.out.println("Unknown argument, closing SofTest");
             System.exit(1);
         }
     }
@@ -20,23 +20,18 @@ public class SofTest {
     public static void SofTestCMD(){
         Scanner input = new Scanner(System.in);
         while(true){
-            System.out.println("Would you like to Run a Java project, Parse an XML or Java file, Create XML from a Java Project, Analyse a Java project, or exit: ");
+            // http://jsxm.org/
+            System.out.println("Would you like to View an XMDL file, Generate test cases, Open previous test cases, or Exit: ");
             String sofMode = input.next().toLowerCase();
             switch(sofMode) {
-                case "run":
-                    new JavaExec();
+                case "view":
+                    new XMDLParser();
                     break;
-                case "parse java":
-                    new JavaParser();
-                    break;
-                case "parse xml":
-                    new XMLParser();
-                    break;
-                case "create":
-                    new CreateXML();
-                    break;
-                case "analyse":
+                case "generate":
                     new StreamX();
+                    break;
+                case "open":
+                    new TestViewer();
                     break;
                 case "exit":
                     System.exit(0);

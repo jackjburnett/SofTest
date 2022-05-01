@@ -5,12 +5,12 @@ public class StreamX {
     Scanner input = new Scanner(System.in);
 
     public StreamX(){
-        System.out.println("Please input the file directory of your Java program for analysis: ");
+        System.out.println("Please input the file directory of your XMDL file for test generation: ");
         String filePath = input.next();
-        System.out.println(validate.JavaValidator(filePath));
+        System.out.println(validate.XMDLValidator(filePath));
     }
 
     public StreamX(String filePath){
-        System.out.println(validate.JavaValidator(filePath));
+        System.out.println(validate.XMDLValidator(filePath));
     }
 }
