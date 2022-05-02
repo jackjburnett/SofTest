@@ -29,5 +29,12 @@ public class Validation {
     public String removeSymbolsLine(String line){
         return line.replaceAll("[{}(),]", "");
     }
+
+    public String[] arrayJoiner(String[] arr1, String[] arr2){
+        String[] joinedArr = new String[arr1.length+arr2.length];
+        System.arraycopy(arr1,0,joinedArr,0, arr1.length);
+        System.arraycopy(arr2,0,joinedArr,arr1.length,arr2.length);
+        return joinedArr;
+    }
 }
 

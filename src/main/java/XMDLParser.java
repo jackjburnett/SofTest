@@ -14,13 +14,17 @@ public class XMDLParser {
     Scanner input = new Scanner(System.in);
 
     public XMDLParser(){
-        System.out.println("Please input the file directory of your XMDL file for test generation: ");
+        System.out.println("Please input the file directory of your XMDL file for parsing: ");
         String filePath = input.next();
         if(validate.XMDLValidator(filePath)){
             ParseFile(filePath, true);
         }else{
             System.out.println("Returning to main menu.");
         }
+    }
+
+    public XMDLParser(String filePath){
+
     }
 
     public XMachine ParseFile(String filePath, Boolean ParseMode){
@@ -127,7 +131,7 @@ public class XMDLParser {
                             }
                         }else{
                             //Code to create X-Machine here
-
+                            InitState=XMDLLine[1];
                             if (ParseMode) {
                                 System.out.println("Initial State value '"+ XMDLLine[1]+"' parsed on line " + lineNo + ".");
                             }
@@ -142,7 +146,7 @@ public class XMDLParser {
                         }else{
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            InitMemory=tempArray;
                             if (ParseMode) {
                                 System.out.println("Initial Memory values "+ Arrays.toString(tempArray)+" parsed on line " + lineNo + ".");
                             }
@@ -211,7 +215,9 @@ public class XMDLParser {
                     case "\n":
                         break;
                     default:
-                        System.out.println("Unknown, or Invalid, X-Machine terminology on line " + lineNo + ".");
+                        if (ParseMode) {
+                            System.out.println("Unknown, or Invalid, X-Machine terminology on line " + lineNo + ".");
+                        }
                 }
                 lineNo=lineNo+1;
             }
