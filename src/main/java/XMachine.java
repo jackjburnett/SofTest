@@ -6,11 +6,11 @@ public class XMachine {
     private String[] Memory;
     private String InitState;
     private String[] InitMemory;
-    private String[] Functions;
-    private String[] ExtFunctions;
-    private String[] Transitions;
+    private String[][] Functions;
+    private String[][] ExtFunctions;
+    private String[][] Transitions;
 
-    public XMachine(String[][] dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[] functions, String[] extFunctions, String[] transitions) {
+    public XMachine(String[][] dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[][] functions, String[][] extFunctions, String[][] transitions) {
         DataTypes = dataTypes;
         States = states;
         Inputs = inputs;
@@ -79,27 +79,27 @@ public class XMachine {
         InitMemory = initMemory;
     }
 
-    public String[] getFunctions() {
+    public String[][] getFunctions() {
         return Functions;
     }
 
-    public void setFunctions(String[] functions) {
+    public void setFunctions(String[][] functions) {
         Functions = functions;
     }
 
-    public String[] getExtFunctions() {
+    public String[][] getExtFunctions() {
         return ExtFunctions;
     }
 
-    public void setExtFunctions(String[] extFunctions) {
+    public void setExtFunctions(String[][] extFunctions) {
         ExtFunctions = extFunctions;
     }
 
-    public String[] getTransitions() {
+    public String[][] getTransitions() {
         return Transitions;
     }
 
-    public void setTransitions(String[] transitions) {
+    public void setTransitions(String[][] transitions) {
         Transitions = transitions;
     }
 }

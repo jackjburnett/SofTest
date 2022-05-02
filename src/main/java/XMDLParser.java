@@ -35,9 +35,9 @@ public class XMDLParser {
         String[] Memory = new String[0];
         String InitState = null;
         String[] InitMemory = new String[0];
-        String[] Functions = new String[0];
-        String[] ExtFunctions = new String[0];
-        String[] Transitions = new String[0];
+        String[][] Functions = new String[0][];
+        String[][] ExtFunctions = new String[0][];
+        String[][] Transitions = new String[0][];
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             int lineNo = 0;
             for(String line; (line = br.readLine()) != null; ) {
@@ -73,7 +73,7 @@ public class XMDLParser {
                         }else{
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            States=tempArray;
                             if (ParseMode) {
                                 System.out.println("States "+ Arrays.toString(tempArray)+" parsed on line " + lineNo + ".");
                             }
@@ -87,7 +87,7 @@ public class XMDLParser {
                         }else{
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            Inputs=tempArray;
                             if (ParseMode) {
                                 System.out.println("Inputs "+ Arrays.toString(tempArray)+" parsed on line " + lineNo + ".");
                             }
@@ -102,7 +102,7 @@ public class XMDLParser {
                         }else{
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            Output=tempArray;
                             if (ParseMode) {
                                 System.out.println("Outputs "+ Arrays.toString(tempArray)+" parsed on line " + lineNo + ".");
                             }
@@ -117,7 +117,7 @@ public class XMDLParser {
                         }else{
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            Memory=tempArray;
                             if (ParseMode) {
                                 System.out.println("Memory values "+ Arrays.toString(tempArray)+" parsed on line " + lineNo + ".");
                             }
