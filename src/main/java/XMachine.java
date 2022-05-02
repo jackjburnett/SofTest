@@ -10,10 +10,6 @@ public class XMachine {
     private String[] ExtFunctions;
     private String[] Transitions;
 
-    public XMachine() {
-        System.out.println("Test XMachine");
-    }
-
     public XMachine(String[][] dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[] functions, String[] extFunctions, String[] transitions) {
         DataTypes = dataTypes;
         States = states;

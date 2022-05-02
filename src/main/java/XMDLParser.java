@@ -24,6 +24,16 @@ public class XMDLParser {
     }
 
     public XMachine ParseFile(String filePath, Boolean ParseMode){
+        String[][] DataTypes = new String[0][];
+        String[] States = new String[0];
+        String[] Inputs = new String[0];
+        String[] Output = new String[0];
+        String[] Memory = new String[0];
+        String InitState = null;
+        String[] InitMemory = new String[0];
+        String[] Functions = new String[0];
+        String[] ExtFunctions = new String[0];
+        String[] Transitions = new String[0];
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             int lineNo = 0;
             for(String line; (line = br.readLine()) != null; ) {
@@ -139,7 +149,27 @@ public class XMDLParser {
                         }
                         break;
                     case "#fun":
-                        System.out.println("fun");
+                        if(XMDLLine.length == 1){
+                            if(ParseMode) {
+                                System.out.println("Incomplete Function entry on line " + lineNo + ".");
+                            }
+                        }else if(XMDLLine.length == 2){
+                            //Code to create X-Machine here
+
+                            if(ParseMode) {
+                                System.out.println("Function '" + XMDLLine[1] + "' parsed on line " + lineNo + ".");
+                            }
+                        }else {
+                            String[] tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
+                            String tempString=String.join(" ",tempArray);
+                            XMDLLine=tempString.split(":");
+                            tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
+                            //Code to create X-Machine here
+
+                            if (ParseMode) {
+                                System.out.println("Function '" + XMDLLine[0] + "', with value '"+ String.join("", tempArray)+"', parsed on line " + lineNo + ".");
+                            }
+                        }
                         break;
                     case "#x_fun":
                         if((XMDLLine.length == 1) || (XMDLLine.length == 3)){
@@ -181,7 +211,7 @@ public class XMDLParser {
                     case "\n":
                         break;
                     default:
-                        System.out.println("Unknown or Invalid X-Machine terminology");
+                        System.out.println("Unknown, or Invalid, X-Machine terminology on line " + lineNo + ".");
                 }
                 lineNo=lineNo+1;
             }
@@ -190,6 +220,6 @@ public class XMDLParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new XMachine();
+        return new XMachine(DataTypes, States, Inputs, Output, Memory, InitState, InitMemory, Functions, ExtFunctions, Transitions);
     }
 }
