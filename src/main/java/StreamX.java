@@ -29,4 +29,28 @@ public class StreamX {
         System.out.println(Arrays.toString(sxm.getExtFunctions()));
         System.out.println(Arrays.toString(sxm.getTransitions()));
     }
+
+    public String[] MissingStates(XMachine sxm){
+        return null;
+    }
+
+    public String[] ExtraStates(XMachine sxm){
+        return null;
+    }
+
+    public String[] MissingTransitions(XMachine sxm){
+        return null;
+    }
+
+    public String[] ExtraTransitions(XMachine sxm){
+        return null;
+    }
+
+    public String[] MisdirectTransitions(XMachine sxm){
+        return null;
+    }
+
+    public String[] FaultyTransitions(XMachine sxm){
+        return null;
+    }
 }

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -28,16 +29,24 @@ public class XMDLParser {
     }
 
     public XMachine ParseFile(String filePath, Boolean ParseMode){
-        String[][] DataTypes = new String[0][];
+        //X-Machine variables
+        String[][][] DataTypes = new String[0][][];
         String[] States = new String[0];
         String[] Inputs = new String[0];
         String[] Output = new String[0];
         String[] Memory = new String[0];
         String InitState = null;
         String[] InitMemory = new String[0];
-        String[][] Functions = new String[0][];
-        String[][] ExtFunctions = new String[0][];
-        String[][] Transitions = new String[0][];
+        String[][][] Functions = new String[0][][];
+        String[][][] ExtFunctions = new String[0][][];
+        String[][][] Transitions = new String[0][][];
+
+        //Iteration variables
+        int dtNum = 0;
+        int funcNum=0;
+        int extNum=0;
+        int tranNum=0;
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             int lineNo = 0;
             for(String line; (line = br.readLine()) != null; ) {
