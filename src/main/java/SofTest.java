@@ -22,7 +22,7 @@ public class SofTest {
             switch (sofMode) {
                 case "parse" -> new XMDLParser();
                 case "generate", "test" -> new StreamX();
-                case "view" -> new TestViewer();
+                case "view" -> TestViewer.OpenTests();
                 case "exit" -> System.exit(0);
                 default -> System.out.println("Unknown command, please enter a specified functionality.");
             }
