@@ -29,6 +29,24 @@ public final class TestViewer {
             for(String line; (line = br.readLine()) != null; ) {
                 String[] TestLine = line.split(" ");
                 switch (TestLine[0].toLowerCase()){
+                    case "#missingstate":
+                        System.out.println("");
+                        break;
+                    case "#extrastate":
+                        System.out.println("");
+                        break;
+                    case "#missingtransition":
+                        System.out.println("");
+                        break;
+                    case "#extratransition":
+                        System.out.println("");
+                        break;
+                    case "#misdirecttransition":
+                        System.out.println("");
+                        break;
+                    case "#faultyfunction":
+                        System.out.println("");
+                        break;
                     default:
                         System.out.println("");
                 }
@@ -40,7 +58,10 @@ public final class TestViewer {
         }
     }
 
-    public static String SimplifyTest(String testResult){
+    public static void OutputTests(String[] MsState, String[] ExState, String[] MsTrans, String[] ExTrans, String[] MdTrans, String[] FltFunc){
+
+    }
+    public static String SimplifyTests(String testResult){
         return null;
     }
 }

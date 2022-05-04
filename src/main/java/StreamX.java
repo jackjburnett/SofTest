@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StreamX {
@@ -16,13 +15,8 @@ public class StreamX {
     }
 
     public StreamX(XMachine sxm){
-        sxm.OutputXMachine();
-        String[] MsState = MissingStates(sxm);
-        String[] ExState = ExtraStates(sxm);
-        String[] MsTrans = MissingTransitions(sxm);
-        String[] ExTrans = ExtraTransitions(sxm);
-        String[] MdTrans = MisdirectTransitions(sxm);
-        String[] FltFunc = FaultyFunctions(sxm);
+        //sxm.OutputXMachine();
+        TestViewer.OutputTests(MissingStates(sxm), ExtraStates(sxm), MissingStates(sxm), ExtraTransitions(sxm),MisdirectTransitions(sxm), FaultyFunctions(sxm));
     }
 
     public String[] MissingStates(XMachine sxm){
