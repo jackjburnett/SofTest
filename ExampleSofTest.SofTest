@@ -1,9 +1,9 @@
-#missingstates 123
-#extrastates 456
-#missingtransitions 789
-#extratransitions 135
-#misdirecttransitions 246
-#faultyfunctions 357
-#faultyfunctions 911
+#missingstate 123
+#extrastate 456
+#missingtransition 789
+#extratransition 135
+#misdirecttransition 246
+#faultyfunction 357
+#faultyfunction 911
 qweq
 qwddd 123
