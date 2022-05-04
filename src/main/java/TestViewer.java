@@ -45,12 +45,11 @@ public final class TestViewer {
                 TestResults.removeAll(keyString);
             }
         }
-        System.out.println(TestResults);
         OutputTests(TestResults);
     }
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
-
+        System.out.println(TestResults);
     }
     public static String SimplifyTests(String testResult){
         return null;
