@@ -1,16 +1,21 @@
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Multimap;
+import java.util.Map;
+
 public class XMachine {
-    private String[][][] DataTypes;
+    private ListMultimap<String, String> DataTypes;
     private String[] States;
     private String[] Inputs;
     private String[] Output;
     private String[] Memory;
     private String InitState;
     private String[] InitMemory;
-    private String[][][] Functions;
-    private String[][][] ExtFunctions;
-    private String[][][] Transitions;
+    private String[][] Functions;
+    private Map<String, String> ExtFunctions;
+    private String[][] Transitions;
 
-    public XMachine(String[][][] dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[][][] functions, String[][][] extFunctions, String[][][] transitions) {
+    public XMachine(ListMultimap<String, String> dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[][] functions, Map<String, String> extFunctions, String[][] transitions) {
         DataTypes = dataTypes;
         States = states;
         Inputs = inputs;
@@ -23,11 +28,11 @@ public class XMachine {
         Transitions = transitions;
     }
 
-    public String[][][] getDataTypes() {
+    public ListMultimap<String, String> getDataTypes() {
         return DataTypes;
     }
 
-    public void setDataTypes(String[][][] dataTypes) {
+    public void setDataTypes(ListMultimap<String, String> dataTypes) {
         DataTypes = dataTypes;
     }
 
@@ -79,27 +84,27 @@ public class XMachine {
         InitMemory = initMemory;
     }
 
-    public String[][][] getFunctions() {
+    public String[][] getFunctions() {
         return Functions;
     }
 
-    public void setFunctions(String[][][] functions) {
+    public void setFunctions(String[][] functions) {
         Functions = functions;
     }
 
-    public String[][][] getExtFunctions() {
+    public Map<String, String> getExtFunctions() {
         return ExtFunctions;
     }
 
-    public void setExtFunctions(String[][][] extFunctions) {
+    public void setExtFunctions(Map<String, String> extFunctions) {
         ExtFunctions = extFunctions;
     }
 
-    public String[][][] getTransitions() {
+    public String[][] getTransitions() {
         return Transitions;
     }
 
-    public void setTransitions(String[][][] transitions) {
+    public void setTransitions(String[][] transitions) {
         Transitions = transitions;
     }
 }

@@ -1,12 +1,11 @@
-import java.beans.XMLDecoder;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -30,16 +29,16 @@ public class XMDLParser {
 
     public XMachine ParseFile(String filePath, Boolean ParseMode){
         //X-Machine variables
-        String[][][] DataTypes = new String[0][][];
+        ListMultimap<String, String> DataTypes = ArrayListMultimap.create();
         String[] States = new String[0];
         String[] Inputs = new String[0];
         String[] Output = new String[0];
         String[] Memory = new String[0];
         String InitState = null;
         String[] InitMemory = new String[0];
-        String[][][] Functions = new String[0][][];
-        String[][][] ExtFunctions = new String[0][][];
-        String[][][] Transitions = new String[0][][];
+        String[][] Functions = new String[0][];
+        Map<String, String> ExtFunctions = new HashMap<String, String>();
+        String[][] Transitions = new String[0][];
 
         //Iteration variables
         int dtNum = 0;
@@ -60,14 +59,17 @@ public class XMDLParser {
                             }
                         }else if(XMDLLine.length == 2){
                             //Code to create X-Machine here
-
+                            DataTypes.put(XMDLLine[1],"");
                             if(ParseMode) {
                                 System.out.println("DataType '" + XMDLLine[1] + "' parsed on line " + lineNo + ".");
                             }
                         }else {
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,3, XMDLLine.length);
                             //Code to create X-Machine here
-
+                            int i;
+                            for(i=0;i<tempArray.length;i++){
+                                DataTypes.put(XMDLLine[1], tempArray[i]);
+                            }
                             if (ParseMode) {
                                 System.out.println("DataType '" + XMDLLine[1] + "', with values "+ Arrays.toString(tempArray)+", parsed on line " + lineNo + ".");
                             }
@@ -191,16 +193,17 @@ public class XMDLParser {
                             }
                         }else if(XMDLLine.length == 2){
                             //Code to create X-Machine here
-
+                            ExtFunctions.put(XMDLLine[1],"");
                             if(ParseMode) {
                                 System.out.println("External Function '" + XMDLLine[1] + "' parsed on line " + lineNo + ".");
                             }
                         }else {
                             String[] tempArray=Arrays.copyOfRange(XMDLLine,3, XMDLLine.length);
+                            String tempString=String.join("", tempArray);
                             //Code to create X-Machine here
-
+                            ExtFunctions.put(XMDLLine[1],tempString);
                             if (ParseMode) {
-                                System.out.println("External Function '" + XMDLLine[1] + "', with value '"+ String.join("", tempArray)+"', parsed on line " + lineNo + ".");
+                                System.out.println("External Function '" + XMDLLine[1] + "', with value '"+tempString+"', parsed on line " + lineNo + ".");
                             }
                         }
                         break;

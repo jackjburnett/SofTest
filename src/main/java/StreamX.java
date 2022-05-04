@@ -18,7 +18,7 @@ public class StreamX {
     }
 
     public StreamX(XMachine sxm){
-        System.out.println(Arrays.toString(sxm.getDataTypes()));
+        System.out.println((sxm.getDataTypes()).toString());
         System.out.println(Arrays.toString(sxm.getStates()));
         System.out.println(Arrays.toString(sxm.getInputs()));
         System.out.println(Arrays.toString(sxm.getOutput()));
@@ -26,7 +26,7 @@ public class StreamX {
         System.out.println(sxm.getInitState());
         System.out.println(Arrays.toString(sxm.getInitMemory()));
         System.out.println(Arrays.toString(sxm.getFunctions()));
-        System.out.println(Arrays.toString(sxm.getExtFunctions()));
+        System.out.println(sxm.getExtFunctions());
         System.out.println(Arrays.toString(sxm.getTransitions()));
     }
 
