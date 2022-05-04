@@ -5,9 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public final class TestViewer {
     static Validation validate = new Validation();
@@ -23,6 +21,7 @@ public final class TestViewer {
     }
 
     private static void ReadTests(String filePath){
+        Map<String, String> TestTypes = GenerateTestTypes();
         ListMultimap<String, String> TestResults = ArrayListMultimap.create();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             for(String line; (line = br.readLine()) != null; ) {
@@ -41,7 +40,7 @@ public final class TestViewer {
         Object[] keyArray= keys.toArray();
         for (Object o : keyArray) {
             String keyString = String.valueOf(o);
-            if (!((keyString).equals("#missingstates") || (keyString).equals("#extrastates") || (keyString).equals("#missingtransitions") || (keyString).equals("#extratransitions") || (keyString).equals("#misdirecttransitions") || (keyString).equals("#faultyfunctions"))) {
+            if (!(TestTypes.containsKey(keyString))) {
                 TestResults.removeAll(keyString);
             }
         }
@@ -50,8 +49,23 @@ public final class TestViewer {
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
         System.out.println(TestResults);
+        for(String key: TestResults.keys()){
+
+            System.out.println(TestResults.get(key));
+        }
     }
     public static String SimplifyTests(String testResult){
         return null;
+    }
+
+    public static Map<String, String> GenerateTestTypes(){
+        Map<String, String> TestTypes= new HashMap<>();
+        TestTypes.put("#missingstate", "Missing state");
+        TestTypes.put("#extrastate", "Extra state");
+        TestTypes.put("#missingtransition", "Missing transition");
+        TestTypes.put("#extratransition", "Extra transition");
+        TestTypes.put("#misdirecttransition", "Misdirecting transition");
+        TestTypes.put("#faultyfunction", "Faulty function/transition (I/O)");
+        return TestTypes;
     }
 }
