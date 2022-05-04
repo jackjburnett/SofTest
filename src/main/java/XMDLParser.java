@@ -15,7 +15,7 @@ public class XMDLParser {
     Scanner input = new Scanner(System.in);
 
     public XMDLParser(){
-        System.out.println("Please input the file directory of your XMDL file for parsing: ");
+        System.out.println("Please input the file path of your XMDL file for parsing: ");
         String filePath = input.next();
         if(validate.XMDLValidator(filePath)){
             ParseFile(filePath, true);

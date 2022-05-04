@@ -9,7 +9,7 @@ public class StreamX {
 
 
     public StreamX(){
-        System.out.println("Please input the file directory of your XMDL file for test generation: ");
+        System.out.println("Please input the file path of your XMDL file for test generation: ");
         String filePath = input.next();
         if(validate.XMDLValidator(filePath)){
             new StreamX(XMDLParser.ParseFile(filePath, false));

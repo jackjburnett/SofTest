@@ -12,7 +12,7 @@ public final class TestViewer {
     static Scanner input = new Scanner(System.in);
 
     public static void OpenTests(){
-        System.out.println("Please input the file directory of your SofTest file containing test results: ");
+        System.out.println("Please input the file path of your SofTest file containing test results: ");
         String filePath = input.next();
         if(validate.SofTestValidator(filePath)){
             ReadTests(filePath);
@@ -48,6 +48,7 @@ public final class TestViewer {
     }
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
+        Map<String, String> TestTypes = GenerateTestTypes();
         System.out.println(TestResults);
         for(String key: TestResults.keySet()){
             for(String result: TestResults.get(key)){
