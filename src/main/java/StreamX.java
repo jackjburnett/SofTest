@@ -25,9 +25,9 @@ public class StreamX {
         System.out.println(Arrays.toString(sxm.getMemory()));
         System.out.println(sxm.getInitState());
         System.out.println(Arrays.toString(sxm.getInitMemory()));
-        System.out.println(Arrays.toString(sxm.getFunctions()));
+        System.out.println((sxm.getFunctions()).toString());
         System.out.println(sxm.getExtFunctions());
-        System.out.println(Arrays.toString(sxm.getTransitions()));
+        System.out.println((sxm.getTransitions()).toString());
     }
 
     public String[] MissingStates(XMachine sxm){
@@ -50,7 +50,7 @@ public class StreamX {
         return null;
     }
 
-    public String[] FaultyTransitions(XMachine sxm){
+    public String[] FaultyFunctions(XMachine sxm){
         return null;
     }
 }

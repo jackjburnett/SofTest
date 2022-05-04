@@ -1,13 +1,12 @@
 import com.google.common.io.Files;
 
 import java.io.File;
-import java.util.stream.IntStream;
 
 public class Validation {
     public boolean XMDLValidator(String filePath) {
         if (new File(filePath).exists()) {
 
-            if (Files.getFileExtension(filePath).toLowerCase().equals("xmdl")) {
+            if (Files.getFileExtension(filePath).equalsIgnoreCase("xmdl")) {
                 return true;
             }
             else{
@@ -30,11 +29,5 @@ public class Validation {
         return line.replaceAll("[{}(),]", "");
     }
 
-    public String[] arrayJoiner(String[] arr1, String[] arr2){
-        String[] joinedArr = new String[arr1.length+arr2.length];
-        System.arraycopy(arr1,0,joinedArr,0, arr1.length);
-        System.arraycopy(arr2,0,joinedArr,arr1.length,arr2.length);
-        return joinedArr;
-    }
 }
 

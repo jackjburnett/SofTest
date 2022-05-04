@@ -1,6 +1,5 @@
-import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Multimap;
+
 import java.util.Map;
 
 public class XMachine {
@@ -11,11 +10,11 @@ public class XMachine {
     private String[] Memory;
     private String InitState;
     private String[] InitMemory;
-    private String[][] Functions;
+    private ListMultimap<String, String> Functions;
     private Map<String, String> ExtFunctions;
-    private String[][] Transitions;
+    private ListMultimap<String, String> Transitions;
 
-    public XMachine(ListMultimap<String, String> dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, String[][] functions, Map<String, String> extFunctions, String[][] transitions) {
+    public XMachine(ListMultimap<String, String> dataTypes, String[] states, String[] inputs, String[] output, String[] memory, String initState, String[] initMemory, ListMultimap<String, String> functions, Map<String, String> extFunctions, ListMultimap<String, String> transitions) {
         DataTypes = dataTypes;
         States = states;
         Inputs = inputs;
@@ -84,11 +83,11 @@ public class XMachine {
         InitMemory = initMemory;
     }
 
-    public String[][] getFunctions() {
+    public ListMultimap<String, String> getFunctions() {
         return Functions;
     }
 
-    public void setFunctions(String[][] functions) {
+    public void setFunctions(ListMultimap<String, String> functions) {
         Functions = functions;
     }
 
@@ -100,11 +99,11 @@ public class XMachine {
         ExtFunctions = extFunctions;
     }
 
-    public String[][] getTransitions() {
+    public ListMultimap<String, String> getTransitions() {
         return Transitions;
     }
 
-    public void setTransitions(String[][] transitions) {
+    public void setTransitions(ListMultimap<String, String> transitions) {
         Transitions = transitions;
     }
 }

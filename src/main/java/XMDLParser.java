@@ -1,13 +1,14 @@
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class XMDLParser {
     static Validation validate = new Validation();
@@ -36,15 +37,9 @@ public class XMDLParser {
         String[] Memory = new String[0];
         String InitState = null;
         String[] InitMemory = new String[0];
-        String[][] Functions = new String[0][];
-        Map<String, String> ExtFunctions = new HashMap<String, String>();
-        String[][] Transitions = new String[0][];
-
-        //Iteration variables
-        int dtNum = 0;
-        int funcNum=0;
-        int extNum=0;
-        int tranNum=0;
+        ListMultimap<String, String> Functions = ArrayListMultimap.create();
+        Map<String, String> ExtFunctions = new HashMap<>();
+        ListMultimap<String, String> Transitions = ArrayListMultimap.create();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             int lineNo = 0;
@@ -170,7 +165,7 @@ public class XMDLParser {
                             }
                         }else if(XMDLLine.length == 2){
                             //Code to create X-Machine here
-
+                            Functions.put(XMDLLine[0],"");
                             if(ParseMode) {
                                 System.out.println("Function '" + XMDLLine[1] + "' parsed on line " + lineNo + ".");
                             }
@@ -179,10 +174,11 @@ public class XMDLParser {
                             String tempString=String.join(" ",tempArray);
                             XMDLLine=tempString.split(":");
                             tempArray=Arrays.copyOfRange(XMDLLine,1, XMDLLine.length);
+                            tempString=String.join("", tempArray);
                             //Code to create X-Machine here
-
+                            Functions.put(XMDLLine[0],tempString);
                             if (ParseMode) {
-                                System.out.println("Function '" + XMDLLine[0] + "', with value '"+ String.join("", tempArray)+"', parsed on line " + lineNo + ".");
+                                System.out.println("Function '" + XMDLLine[0] + "', with value '"+tempString+"', parsed on line " + lineNo + ".");
                             }
                         }
                         break;
@@ -217,7 +213,7 @@ public class XMDLParser {
                             String tranString=String.join("", tempArray);
                             XMDLLine = tranString.split("=");
                             //Code to create X-Machine here
-
+                            Transitions.put(XMDLLine[0],XMDLLine[1]);
                             if (ParseMode) {
                                 System.out.println("Transition from '" + XMDLLine[0] + "' to '"+ XMDLLine[1]+"', parsed on line " + lineNo + ".");
                             }
