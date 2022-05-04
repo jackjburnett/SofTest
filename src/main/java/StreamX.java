@@ -1,3 +1,6 @@
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+
 import java.util.Scanner;
 
 public class StreamX {
@@ -16,7 +19,8 @@ public class StreamX {
 
     public StreamX(XMachine sxm){
         //sxm.OutputXMachine();
-        TestViewer.OutputTests(MissingStates(sxm), ExtraStates(sxm), MissingStates(sxm), ExtraTransitions(sxm),MisdirectTransitions(sxm), FaultyFunctions(sxm));
+        ListMultimap<String, String> TestResults = ArrayListMultimap.create();
+        TestViewer.OutputTests(TestResults);
     }
 
     public String[] MissingStates(XMachine sxm){
