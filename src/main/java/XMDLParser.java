@@ -37,7 +37,7 @@ public class XMDLParser {
         ListMultimap<String, String> Transitions = ArrayListMultimap.create();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            int lineNo = 0;
+            int lineNo = 1;
             for(String line; (line = br.readLine()) != null; ) {
                 String[] XMDLLine = line.split(" ");
                 switch (XMDLLine[0].toLowerCase()){

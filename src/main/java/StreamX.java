@@ -18,8 +18,9 @@ public class StreamX {
     }
 
     public StreamX(XMachine sxm){
-        //sxm.OutputXMachine();
+        sxm.OutputXMachine();
         ListMultimap<String, String> TestResults = ArrayListMultimap.create();
+        
         TestViewer.OutputTests(TestResults);
     }
 
