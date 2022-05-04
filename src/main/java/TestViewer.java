@@ -49,11 +49,14 @@ public final class TestViewer {
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
         System.out.println(TestResults);
-        for(String key: TestResults.keys()){
-
-            System.out.println(TestResults.get(key));
+        for(String key: TestResults.keySet()){
+            for(String result: TestResults.get(key)){
+                System.out.print(TestTypes.get(key)+": ");
+                System.out.println(result);
+            }
         }
     }
+
     public static String SimplifyTests(String testResult){
         return null;
     }
