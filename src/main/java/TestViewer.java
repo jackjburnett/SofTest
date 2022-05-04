@@ -9,10 +9,4 @@ public final class TestViewer {
     public static String SimplifyTest(String testResult){
         return null;
     }
-
-    public static File OpenFile(String filePath){
-        return null;
-    }
-
-
 }

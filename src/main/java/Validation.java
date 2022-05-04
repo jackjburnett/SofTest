@@ -18,6 +18,22 @@ public class Validation {
             return false;
         }
     }
+
+    public boolean SofTestValidator(String filePath) {
+        if (new File(filePath).exists()) {
+            if (Files.getFileExtension(filePath).equalsIgnoreCase("softest")) {
+                return true;
+            }
+            else{
+                System.out.println("Specified file is not of type 'SofTest'.");
+                return false;
+            }
+        } else{
+            System.out.println("File path does not exist, or does not lead to a file.");
+            return false;
+        }
+    }
+
     public String[] removeSymbolsArray(String[] arr){
         for (int n = 0; n < arr.length; n++) {
             arr[n] = removeSymbolsLine(arr[n]);
