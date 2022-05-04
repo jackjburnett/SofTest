@@ -19,16 +19,11 @@ public class XMDLParser {
         String filePath = input.next();
         if(validate.XMDLValidator(filePath)){
             ParseFile(filePath, true);
-        }else{
-            System.out.println("Returning to main menu.");
         }
+        System.out.println("Returning to main menu.");
     }
 
-    public XMDLParser(String filePath){
-
-    }
-
-    public XMachine ParseFile(String filePath, Boolean ParseMode){
+    public static XMachine ParseFile(String filePath, Boolean ParseMode){
         //X-Machine variables
         ListMultimap<String, String> DataTypes = ArrayListMultimap.create();
         String[] States = new String[0];

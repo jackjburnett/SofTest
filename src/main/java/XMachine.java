@@ -1,5 +1,6 @@
 import com.google.common.collect.ListMultimap;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class XMachine {
@@ -25,6 +26,19 @@ public class XMachine {
         Functions = functions;
         ExtFunctions = extFunctions;
         Transitions = transitions;
+    }
+
+    public void OutputXMachine(){
+        System.out.println(DataTypes.toString());
+        System.out.println(Arrays.toString(States));
+        System.out.println(Arrays.toString(Inputs));
+        System.out.println(Arrays.toString(Output));
+        System.out.println(Arrays.toString(Memory));
+        System.out.println(InitState);
+        System.out.println(Arrays.toString(InitMemory));
+        System.out.println((Functions).toString());
+        System.out.println(ExtFunctions);
+        System.out.println((Transitions).toString());
     }
 
     public ListMultimap<String, String> getDataTypes() {

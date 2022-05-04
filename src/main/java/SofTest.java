@@ -17,7 +17,6 @@ public class SofTest {
     public static void SofTestCMD(){
         Scanner input = new Scanner(System.in);
         while(true){
-            // http://jsxm.org/
             System.out.println("Would you like to Parse an XMDL file, Generate test cases for an XMDL file, View previous test cases, or Exit: ");
             String sofMode = input.next().toLowerCase();
             switch (sofMode) {
