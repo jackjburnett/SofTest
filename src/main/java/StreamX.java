@@ -53,6 +53,7 @@ public class StreamX {
     }
 
     public String[] MissingStates(XMachine sxm){
+        List<String> missingState= new ArrayList<>();
         List<String> states = new ArrayList<>(Arrays.asList(sxm.getStates()));
         for (String transition : sxm.getTransitions().keys()) {
             String transitionStates = transition.replace("(", ",");
@@ -60,10 +61,13 @@ public class StreamX {
             transitionStates = transitionStates.replace(" ", "");
             String[] startTransitionStates = transitionStates.split(",");
             String[] endTransitionStates= sxm.getTransitions().get(transition).toArray(new String[0]);
-            
+            for(String state:states){
+                if(Arrays.stream(startTransitionStates).noneMatch(state::equals) && Arrays.stream(endTransitionStates).noneMatch(state::equals)){
+                    missingState.add(state);
+                }
+            }
         }
-
-        return sxm.getStates();
+        return missingState.toArray(new String [0]);
     }
 
     public String[] ExtraStates(XMachine sxm){
