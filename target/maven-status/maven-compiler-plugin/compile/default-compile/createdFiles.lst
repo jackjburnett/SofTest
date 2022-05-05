@@ -1,6 +1,7 @@
 StreamX.class
 XMachine.class
-TestViewer.class
+ExecSXM.class
 XMDLParser.class
+TestViewer.class
 SofTest.class
 Validation.class

@@ -48,8 +48,8 @@ public final class TestViewer {
     }
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
-        Map<String, String> TestTypes = GenerateTestTypes();
         System.out.println(TestResults);
+        Map<String, String> TestTypes = GenerateTestTypes();
         for(String key: TestResults.keySet()){
             for(String result: TestResults.get(key)){
                 System.out.print(TestTypes.get(key)+": ");
@@ -71,7 +71,6 @@ public final class TestViewer {
         TestTypes.put("#misdirecttransition", "Misdirecting transition");
         TestTypes.put("#faultyfunction", "Faulty function/transition (I/O)");
         TestTypes.put("#inaccessiblestate", "Faulty function/transition (I/O)");
-        TestTypes.put("#isminimal", "Faulty function/transition (I/O)");
         return TestTypes;
     }
 }
