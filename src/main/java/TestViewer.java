@@ -66,30 +66,15 @@ public final class TestViewer {
         for(String key: TestResults.keySet()){
             for(String result: TestResults.get(key)){
                 String [] states=result.split(">");
-                switch (key){
-                    case "#missingstate":
-                        System.out.println("You need to implement the state '"+result+"'.");
-                        break;
-                    case "#extrastate":
-                        System.out.println("You need to remove the state '"+result+"'.");
-                        break;
-                    case "#missingtransition":
-                        System.out.println("You need to add a transition from '"+states[0]+"to"+states[1]+"'.");
-                        break;
-                    case "#extratransition":
-                        System.out.println("You need to remove the transition from '"+states[0]+"to"+states[1]+"'.");
-                        break;
-                    case "#misdirecttransition":
-                        System.out.println("You need fix the state transition from '"+states[0]+"to"+states[1]+"'.");
-                        break;
-                    case "#faultyfunction":
-                        System.out.println("You need to fix the function '"+result+"'.");
-                        break;
-                    case "#inaccessiblestate":
-                        System.out.println("You need to create a transition to the state '"+result+"'.");
-                        break;
-                    default:
-                        System.out.println("Test simplification not yet implemented for this result.");
+                switch (key) {
+                    case "#missingstate" -> System.out.println("You need to implement the state '" + result + "'.");
+                    case "#extrastate" -> System.out.println("You need to remove the state '" + result + "'.");
+                    case "#missingtransition" -> System.out.println("You need to add a transition from '" + states[0] + "to" + states[1] + "'.");
+                    case "#extratransition" -> System.out.println("You need to remove the transition from '" + states[0] + "to" + states[1] + "'.");
+                    case "#misdirecttransition" -> System.out.println("You need fix the state transition from '" + states[0] + "to" + states[1] + "'.");
+                    case "#faultyfunction" -> System.out.println("You need to fix the function '" + result + "'.");
+                    case "#inaccessiblestate" -> System.out.println("You need to create a transition to the state '" + result + "'.");
+                    default -> System.out.println("Test simplification not yet implemented for this result.");
                 }
             }
         }
