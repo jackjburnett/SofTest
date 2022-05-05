@@ -7,4 +7,6 @@ The runbook for this program can be found at https://github.com/jackjburnett/Sof
 1. [Download](https://github.com/jackjburnett/SofTest/archive/refs/heads/main.zip) the main branch as a .zip folder.
 2. Extract the zip folder in its entirity.
 3. Locate the extracted files and open the SofTest folder as a project in IntelliJ or NetBeans.
-4. Run the project.
+4. Open command prompt and enter the following commands:
+    a. cd
+    b. java -jar SofTest-1.0.jar
