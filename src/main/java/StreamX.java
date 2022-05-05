@@ -1,6 +1,5 @@
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,15 +40,20 @@ public class StreamX {
         for(String faultyFunctions:FaultyFunctions(sxm)){
             TestResults.put("#faultyfunction", faultyFunctions);
         }
-        System.out.println("1");
-        for(String inaccessibleState:isAccessible(sxm)){
+        String[] inaccessibleStates=isAccessible(sxm);
+        for(String inaccessibleState:inaccessibleStates){
             TestResults.put("#inaccessiblestate", inaccessibleState);
         }
-        System.out.println("1");
+        if(inaccessibleStates.length>0){
+            TestResults.put("#isminimal","false");
+        }else{
+            TestResults.put("#isminimal","true");
+        }
         TestViewer.OutputTests(TestResults);
     }
 
     public String[] MissingStates(XMachine sxm){
+
         return sxm.getStates();
     }
 
