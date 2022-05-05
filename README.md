@@ -4,7 +4,7 @@ A software testing tool using X-machine theory, based on ['An algorithm for impl
 The runbook for this program can be found at https://github.com/jackjburnett/SofTest/wiki/Runbook.
 
 ## Quick-Start
-1. [Download the most recent build](https://drive.google.com/file/d/1KJu-Rp9FJDiReWRbYmKPZMchHidGDJpV/view?usp=sharing), this can be found in the [target](https://github.com/jackjburnett/SofTest/tree/main/target) section of this GitHub.
+1. [Download the most recent build](https://drive.google.com/file/d/1srqLshM9uOU-QnqEYWWN4Rjq5kqnICyF/view?usp=sharing), this can be found in the [target](https://github.com/jackjburnett/SofTest/tree/main/target) section of this GitHub.
 2. Extract the contents of the zip folder.
 3. Copy the path that the extracted files are stored in.
 4. Open command prompt and enter the following commands:
