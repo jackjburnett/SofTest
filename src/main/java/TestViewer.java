@@ -70,6 +70,8 @@ public final class TestViewer {
         TestTypes.put("#extratransition", "Extra transition");
         TestTypes.put("#misdirecttransition", "Misdirecting transition");
         TestTypes.put("#faultyfunction", "Faulty function/transition (I/O)");
+        TestTypes.put("#inaccessiblestate", "Faulty function/transition (I/O)");
+        TestTypes.put("#isminimal", "Faulty function/transition (I/O)");
         return TestTypes;
     }
 }
