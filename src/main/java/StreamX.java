@@ -53,6 +53,14 @@ public class StreamX {
     }
 
     public String[] MissingStates(XMachine sxm){
+        List<String> states = new ArrayList<>(Arrays.asList(sxm.getStates()));
+        for (String transition : sxm.getTransitions().keys()) {
+            transition = transition.replace("(", ",");
+            transition = transition.replace(")", ",");
+            transition = transition.replace(" ", "");
+            String[] transitionStates = transition.split(",");
+
+        }
 
         return sxm.getStates();
     }
