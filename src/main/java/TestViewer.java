@@ -48,7 +48,6 @@ public final class TestViewer {
     }
 
     public static void OutputTests(ListMultimap<String, String> TestResults){
-        System.out.println(TestResults);
         Map<String, String> TestTypes = GenerateTestTypes();
         for(String key: TestResults.keySet()){
             for(String result: TestResults.get(key)){
@@ -56,10 +55,44 @@ public final class TestViewer {
                 System.out.println(result);
             }
         }
+        System.out.println("Would you like to simplify these results?");
+        String simplify = input.next();
+        if((simplify.equalsIgnoreCase("y"))||(simplify.equalsIgnoreCase("yes"))){
+            SimplifyTests(TestResults);
+        }
     }
 
-    public static String SimplifyTests(String testResult){
-        return null;
+    public static void SimplifyTests(ListMultimap<String, String> TestResults){
+        for(String key: TestResults.keySet()){
+            for(String result: TestResults.get(key)){
+                String [] states=result.split(">");
+                switch (key){
+                    case "#missingstate":
+                        System.out.println("You need to implement the state '"+result+"'.");
+                        break;
+                    case "#extrastate":
+                        System.out.println("You need to remove the state '"+result+"'.");
+                        break;
+                    case "#missingtransition":
+                        System.out.println("You need to add a transition from '"+states[0]+"to"+states[1]+"'.");
+                        break;
+                    case "#extratransition":
+                        System.out.println("You need to remove the transition from '"+states[0]+"to"+states[1]+"'.");
+                        break;
+                    case "#misdirecttransition":
+                        System.out.println("You need fix the state transition from '"+states[0]+"to"+states[1]+"'.");
+                        break;
+                    case "#faultyfunction":
+                        System.out.println("You need to fix the function '"+result+"'.");
+                        break;
+                    case "#inaccessiblestate":
+                        System.out.println("You need to create a transition to the state '"+result+"'.");
+                        break;
+                    default:
+                        System.out.println("Test simplification not yet implemented for this result.");
+                }
+            }
+        }
     }
 
     public static Map<String, String> GenerateTestTypes(){

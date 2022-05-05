@@ -1,9 +1,10 @@
-#missingstate 123
-#extrastate 456
-#missingtransition 789
-#extratransition 135
-#misdirecttransition 246
-#faultyfunction 357
-#faultyfunction 911
+#missingstate testState
+#extrastate testState2
+#missingtransition testState>testState2
+#extratransition testState>testState 
+#misdirecttransition testState>testState 
+#faultyfunction faultyFunction
+#inaccessiblestate testState3
+#isminimal false
 qweq
 qwddd 123
